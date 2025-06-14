@@ -13,10 +13,9 @@ export default function ProductsList({
   initialCartProducts: Product[];
 }) {
   const [cartProducts, setCartProducts] = useState<Product[]>(initialCartProducts);
-  const apiBaseUrl = "https://bug-free-space-giggle-4j6x7j56qjq6fq7gq-3000.app.github.dev";
 
   async function addToCart(productId: string) {
-    const response = await fetch(`${apiBaseUrl}/api/users/2/cart`, {
+    const response = await fetch(process.env.NEXT_PUBLIC_SITE_URL+'/api/users/2/cart', {
       method: "POST",
       body: JSON.stringify({ productId }),
       headers: { "Content-Type": "application/json" },
@@ -27,7 +26,7 @@ export default function ProductsList({
   }
 
   async function removeFromCart(productId: string) {
-    const response = await fetch(`${apiBaseUrl}/api/users/2/cart`, {
+    const response = await fetch(process.env.NEXT_PUBLIC_SITE_URL+'/api/users/2/cart', {
       method: "DELETE",
       body: JSON.stringify({ productId }),
       headers: { "Content-Type": "application/json" },

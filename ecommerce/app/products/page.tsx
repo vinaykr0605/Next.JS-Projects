@@ -1,10 +1,11 @@
 import ProductsList from "../ProductsList";
 
+export const dynamic = 'force-dynamic'; 
 export default async function ProductsPage() {
-  const response = await fetch('https://bug-free-space-giggle-4j6x7j56qjq6fq7gq-3000.app.github.dev/api/products',);
+  const response = await fetch(process.env.NEXT_PUBLIC_SITE_URL+'/api/products',);
   const products = await response.json();
 
-  const response2 = await fetch('https://bug-free-space-giggle-4j6x7j56qjq6fq7gq-3000.app.github.dev/api/users/2/cart', {
+  const response2 = await fetch(process.env.NEXT_PUBLIC_SITE_URL+'/api/users/2/cart', {
     cache: 'no-cache'
   });
   const cartProducts = await response2.json();

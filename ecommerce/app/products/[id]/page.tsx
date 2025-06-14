@@ -1,11 +1,12 @@
+export const dynamic = 'force-dynamic'; 
+
 export default async function ProductDetailPage({
   params,
 }: {
   params: { id: string };
 }) {
-  const product = await fetch(
-    `https://bug-free-space-giggle-4j6x7j56qjq6fq7gq-3000.app.github.dev/api/products/${params.id}`
-  ).then((res) => res.json());
+  const product =
+   await fetch(process.env.NEXT_PUBLIC_SITE_URL+'/api/products/'+params.id).then((res) => res.json());
 
   if (!product) {
     return notFound();
