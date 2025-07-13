@@ -1,1 +1,1 @@
-# Next.JS-Projects
+# Next.JS Building Small Ecommernce Application 
